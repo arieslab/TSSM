@@ -1,5 +1,7 @@
 # TSSM Dataset
 
+> **_NOTE:_** the dataset is temporarily available [here](https://drive.google.com/file/d/1sSTD-PdEnfdrgV4qhi62feHVGQ7v5s0b/view?usp=sharing).
+
 ## Creation Steps
 
 ### (1) List of Java projects
