@@ -21,8 +21,6 @@ We developed `MiningGitHub` to collect the following data of the projects:
 * **Structural metrics.** We used the [CK Metrics](https://github.com/mauricioaniche/ck) to collect structural metrics from the test and production code.
 * **Metadata from GitHub.** We used the [GHRepository](https://github-api.kohsuke.org/apidocs/index.html) to collect the metadata of the projects sucessfully executed by JNose Test and CK Metrics. 
 
-Next, we developed `script.py` to merge the test smells and metrics. We analyzed the collected data at class and method levels to establish a traceability link between the JNose Test and CK Metrics tools. It is important to notice that not all production classes of a project match with their respective test class, and the same occurs at the method level. We followed the JUnit naming convention of either pre-pending or appending the word ``Test`` to the name of the production class at the same level at the package hierarchy. For example, a production class in the package ``/src/java/example/``is called ``ExampleName.java``, so its test class should be in the package ``/src/test/example`` and named as ``ExampleNameTest.java`` or ``TestExampleName.java``.
-
 We made the files containing the data on test smells and metrics available in the folder ```TSSM```. It is structured as follows:
 
 ```
@@ -31,20 +29,14 @@ TSSM
 ├── Test Smells
 │   ├── classSmells.csv: contains data of 18 test smells at class level
 │   ├── methodSmells.csv: contains data of 18 test smells at method level
-├── Metrics: 
+├── Metrics of the test code: 
 │   ├── testClass.csv: contains data of 44 structural metrics at test class level
 │   ├── testMethod.csv: contains data of 28 structural metrics at test method level 
+├── Metrics of the production: 
 │   ├── productionClass.csv: contains data of 44 structural metrics at production class level
 │   ├── productionMethod.csv: contains data of 28 structural metrics at production method level 
-├── Test smells and metrics:
-│   ├── mergeTestClass.csv: contains data of 44 structural metrics and 18 test smells at test class level
-│   ├── mergeTestMethod.csv: contains data of 28 structural metrics and 18 test smells at test method level
-│   ├── mergeProductionClass.csv: contains data of 44 structural metrics and 18 test smells at production class level
-│   ├── mergeProductionMethod.csv: contains data of 28 structural metrics and 18 test smells at production method level
 |
 ```
-
-## Download and Run
 
 ## Mining GitHub 
 
@@ -62,20 +54,10 @@ mvn install
 Clone the project to generate the dataset using the following command:
 
 ```shell
-git clone git@github.com:luana-martins/TSSM.git
+git clone git@github.com:arieslab/TSSM.git
 ```
 
 Open the project ```MiningGitHub``` in the IDE as a Maven project (we used IntelliJ), configure and run the class ```Main.java``` with the information:
 * **ghKey** receives a personal access token from GitHub. [Generating a ghKey](https://github.com/settings/tokens).
 * **startNumberList** receives a initial lineID of a project from the ```project_list.txt``` to start the data collection. 
 * **endNumberList** receives a final lineID of a project from the ```project_list.txt``` to start the data collection. 
-
-## Merging Test smells and Metrics
-
-Prerequisites:
- - Python 3
-
-Open the ```Scripts``` folder and execute the command:
-```shell
-python3 merge.py
-```
