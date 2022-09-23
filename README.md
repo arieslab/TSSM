@@ -1,5 +1,7 @@
 # TSSM Dataset
 
+> **_NOTE:_** the .csv files that compose the TSSM dataset is available in the [figshare repository](https://figshare.com/s/eee9374e35d9463cf1ff).
+
 ## Creation Steps
 
 ### (1) List of Java projects
